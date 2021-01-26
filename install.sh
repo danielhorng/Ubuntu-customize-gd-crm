@@ -58,13 +58,7 @@ sed -i_bak -e 's/<allow_any>no<\/allow_any>/<allow_any>auth_admin_keep<\/allow_a
 # let tag [<allow_any>] from "no" to "auth_admin_keep"
 sed -i_bak -e 's/<allow_any>no<\/allow_any>/<allow_any>auth_admin_keep<\/allow_any>' /usr/share/polkit-1/actions/gonme.controlcenter.remote-login-helper.policy
 
-
-
-
 echo "###############################################################################"
 echo "Install is complete."
 echo "Reboot your machine to begin using XRDP."
 echo "###############################################################################"
-
-
-
