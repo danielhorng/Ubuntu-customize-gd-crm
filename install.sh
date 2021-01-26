@@ -59,6 +59,11 @@ sed -i_bak -e 's/<allow_any>no<\/allow_any>/<allow_any>auth_admin_keep<\/allow_a
 sed -i_bak -e 's/<allow_any>no<\/allow_any>/<allow_any>auth_admin_keep<\/allow_any>' /usr/share/polkit-1/actions/gonme.controlcenter.remote-login-helper.policy
 
 echo "###############################################################################"
+echo " Change system timezone to Asia/Taipei
+echo "###############################################################################"
+timedatectl set-timezone Asia/Taipei
+
+echo "###############################################################################"
 echo "Install is complete."
 echo "Reboot your machine to begin using XRDP."
 echo "###############################################################################"
