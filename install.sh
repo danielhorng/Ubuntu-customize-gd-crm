@@ -43,6 +43,25 @@ systemctl stop xrdp
 systemctl stop xrdp-sesman
 
 echo "###############################################################################"
+echo "# Modify policy to let administrator users can work with GUI when connect with xrdp."
+echo "###############################################################################"
+
+# change [gonme.controlcenter.user-accounts.policy] 
+# let tag [<allow_any>] from "no" to "auth_admin_keep"
+sed -i_bak -e 's/<allow_any>no<\/allow_any>/<allow_any>auth_admin_keep<\/allow_any>' /usr/share/polkit-1/actions/gonme.controlcenter.user-accounts.policy
+
+# change [gonme.controlcenter.datetime.policy]
+# let tag [<allow_any>] from "no" to "auth_admin_keep"
+sed -i_bak -e 's/<allow_any>no<\/allow_any>/<allow_any>auth_admin_keep<\/allow_any>' /usr/share/polkit-1/actions/gonme.controlcenter.datetime.policy
+
+# change [gonme.controlcenter.remote-login-helper.policy]
+# let tag [<allow_any>] from "no" to "auth_admin_keep"
+sed -i_bak -e 's/<allow_any>no<\/allow_any>/<allow_any>auth_admin_keep<\/allow_any>' /usr/share/polkit-1/actions/gonme.controlcenter.remote-login-helper.policy
+
+
+
+
+echo "###############################################################################"
 echo "Install is complete."
 echo "Reboot your machine to begin using XRDP."
 echo "###############################################################################"
