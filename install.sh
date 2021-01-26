@@ -4,7 +4,7 @@
 #
 
 echo "###############################################################################"
-echo "# Update our machine to the latest code if we need to."
+echo "# Update our machine to the latest code if we need to. "
 echo "###############################################################################"
 
 # if user id not equal to 0 then print error message to standard error.
@@ -25,25 +25,25 @@ if [ -f /var/run/reboot-required ]; then
 fi
 
 echo "###############################################################################"
-echo "# Install linux-tools-virtual-hwe-20.04"
+echo "# Install linux-tools-virtual-hwe-20.04 "
 echo "###############################################################################"
 # Install hv_kvp utils
 apt install -y linux-tools-virtual-hwe-20.04
 apt install -y linux-cloud-tools-virtual-hwe-20.04
 
 echo "###############################################################################"
-echo "# Install the xrdp service so we have the auto start behavior"
+echo "# Install the xrdp service so we have the auto start behavior "
 echo "###############################################################################"
 apt install -y xrdp
 
 echo "###############################################################################"
-echo "# Stop xrdp service"
+echo "# Stop xrdp service "
 echo "###############################################################################"
 systemctl stop xrdp
 systemctl stop xrdp-sesman
 
 echo "###############################################################################"
-echo "# Modify policy to let administrator users can work with GUI when connect with xrdp."
+echo "# Modify policy to let administrator users can work with GUI when connect with xrdp. "
 echo "###############################################################################"
 
 # change [org.gnome.controlcenter.user-accounts.policy] 
@@ -59,11 +59,11 @@ sed -i_bak -e 's/<allow_any>no<\/allow_any>/<allow_any>auth_admin_keep<\/allow_a
 sed -i_bak -e 's/<allow_any>no<\/allow_any>/<allow_any>auth_admin_keep<\/allow_any>/' /usr/share/polkit-1/actions/org.gnome.controlcenter.remote-login-helper.policy
 
 echo "###############################################################################"
-echo " Change system timezone to Asia/Taipei
+echo " Change system timezone to Asia/Taipei "
 echo "###############################################################################"
 timedatectl set-timezone Asia/Taipei
 
 echo "###############################################################################"
 echo "Install is complete."
-echo "Reboot your machine to begin using XRDP."
+echo "Reboot your machine to begin using XRDP. "
 echo "###############################################################################"
