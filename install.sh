@@ -59,9 +59,15 @@ sed -i.bak -e 's/<allow_any>no<\/allow_any>/<allow_any>auth_admin_keep<\/allow_a
 sed -i.bak -e 's/<allow_any>no<\/allow_any>/<allow_any>auth_admin_keep<\/allow_any>/' /usr/share/polkit-1/actions/org.gnome.controlcenter.remote-login-helper.policy
 
 echo "###############################################################################"
-echo " Change system timezone to Asia/Taipei "
+echo "Change system timezone to Asia/Taipei "
 echo "###############################################################################"
 timedatectl set-timezone Asia/Taipei
+
+echo "###############################################################################"
+echo "Installing Tweak Tool "
+echo "###############################################################################"
+add-apt-repository universe
+apt install gnome-tweak-tool
 
 echo "###############################################################################"
 echo "Install is complete."
