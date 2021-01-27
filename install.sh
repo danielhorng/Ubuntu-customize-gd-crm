@@ -75,6 +75,16 @@ echo "##########################################################################
 apt-get install -y gufw
 
 echo "###############################################################################"
+echo "Setting Firewall "
+echo "###############################################################################"
+ufw default allow outgoing
+ufw default deny incoming
+ufw allow from 192.168.0.0/24 to any port 3389   # Allow local network connect with xrdp 
+ufw allow from any to any port 80    # Allow connect to web server from anywhere
+ufw allow from any to any port 443   # Allow connect to ssl web server from anywhere
+ufw enable    # Start Firewall
+
+echo "###############################################################################"
 echo "Installing tasksel "
 echo "###############################################################################"
 apt install -y tasksel
