@@ -11,7 +11,6 @@ Install.sh will install following application and setting
     <li>Modify policy to let administrator users can work with GUI when connect with xrdp.</li>
     <li>Change system timezone to Asia/Taipei.</li>
     <li>Installing Tweak Tool to let you can modify more NGOME GUI setting.</li>
-    <li>Install GUI Firewall (GUFW).</li>
     <li>Setting common firewall setting.</li>
     <li>Installing LAMP Server. (Apache、MySQL、PHP)</li>
 </ul>
