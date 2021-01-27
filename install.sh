@@ -4,7 +4,7 @@
 #
 
 echo "###############################################################################"
-echo "# Update our machine to the latest code if we need to. "
+echo "Update our machine to the latest code if we need to. "
 echo "###############################################################################"
 
 # if user id not equal to 0 then print error message to standard error.
@@ -25,19 +25,19 @@ if [ -f /var/run/reboot-required ]; then
 fi
 
 echo "###############################################################################"
-echo "# Install linux-tools-virtual-hwe-20.04 "
+echo "Install linux-tools-virtual-hwe-20.04 "
 echo "###############################################################################"
 # Install hv_kvp utils
 apt install -y linux-tools-virtual-hwe-20.04
 apt install -y linux-cloud-tools-virtual-hwe-20.04
 
 echo "###############################################################################"
-echo "# Install the xrdp service so we have the auto start behavior "
+echo "Install the xrdp service so we have the auto start behavior "
 echo "###############################################################################"
 apt install -y xrdp
 
 echo "###############################################################################"
-echo "# Stop xrdp service "
+echo "Stop xrdp service "
 echo "###############################################################################"
 systemctl stop xrdp
 systemctl stop xrdp-sesman
@@ -68,6 +68,11 @@ echo "Installing Tweak Tool "
 echo "###############################################################################"
 add-apt-repository universe
 apt install -y gnome-tweak-tool
+
+echo "###############################################################################"
+echo "Install GUI Firewall "
+echo "###############################################################################"
+apt-get install -y gufw
 
 echo "###############################################################################"
 echo "Installing tasksel "
